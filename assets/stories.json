@@ -1,0 +1,43 @@
+{
+    "adventure1": {
+      "title": "The Dark Room",
+      "start": "start",
+      "nodes": {
+        "start": {
+          "text": "You wake up in a dark room. What do you do?",
+          "choices": [
+            { "text": "Look around", "next": "look_around" },
+            { "text": "Call for help", "next": "call_for_help" }
+          ]
+        },
+        "look_around": {
+          "text": "You find a door. Do you open it?",
+          "choices": [
+            { "text": "Yes", "next": "open_door" },
+            { "text": "No", "next": "stay_put" }
+          ]
+        }
+      }
+    },
+    "adventure2": {
+      "title": "The Lost Island",
+      "start": "beach",
+      "nodes": {
+        "beach": {
+          "text": "You are stranded on a deserted island. What do you do?",
+          "choices": [
+            { "text": "Explore the forest", "next": "forest" },
+            { "text": "Build a shelter", "next": "shelter" }
+          ]
+        },
+        "forest": {
+          "text": "You find strange footprints. Do you follow them?",
+          "choices": [
+            { "text": "Yes", "next": "footprints" },
+            { "text": "No", "next": "stay_in_forest" }
+          ]
+        }
+      }
+    }
+  }
+  

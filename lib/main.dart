@@ -1,4 +1,4 @@
-import 'package:cyoa_app/Home_page.dart';
+import 'package:cyoa_app/pages/Catergories.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +13,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CYOA App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
+      // theme: ThemeData(
+      //   appBarTheme: AppBarTheme(
+      //       centerTitle: true, backgroundColor: Colors.blue.shade100),
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: ThemeData.dark(),
+      home: Catergories(),
     );
   }
 }
