@@ -1,4 +1,5 @@
 import 'package:cyoa_app/pages/Catergories.dart';
+import 'package:cyoa_app/constant/Stories.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,8 +20,15 @@ class MyApp extends StatelessWidget {
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       //   useMaterial3: true,
       // ),
-      theme: ThemeData.dark(),
-      home: Catergories(),
+      theme: ThemeData(fontFamily: 'Ubuntu'),
+      // theme: ThemeData.dark().copyWith(
+      //   textTheme: ThemeData.dark().textTheme.apply(
+      //         fontFamily: 'Ubuntu', // Set Ubuntu as the default font
+      //       ),
+      // ),
+      home: StoryPage(
+        title: 'something',
+      ),
     );
   }
 }

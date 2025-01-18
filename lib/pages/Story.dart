@@ -12,7 +12,7 @@ class _StoryPageState extends State<StoryPage> {
     "pages": {
       "intro": {
         "text":
-            "You stand at a crossroads in a dense forest. The sun is setting, and the paths ahead are shrouded in mystery. To the left, you hear the faint sound of running water. To the right, there is an eerie silence.",
+            "You stand at a crossroads in a dense forest. The sun is setting, and the paths ahead are shrouded in mystery. To the left, you hear the faint sound of running water. To the right, there is an eerie silence.You stand at a crossroads in a dense forest. The sun is setting, and the paths ahead are shrouded in mystery. To the left, you hear the faint sound of running water. To the right, there is an eerie silence.",
         "choices": [
           {"text": "Go left toward the sound of water", "target": "left_path"},
           {"text": "Go right into the silence", "target": "right_path"},
@@ -162,23 +162,39 @@ class _StoryPageState extends State<StoryPage> {
           constraints: BoxConstraints.expand(),
           child: SafeArea(
             child: Column(
+                spacing: 20,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Expanded(
-                    flex: 12,
-                    child: Center(
-                      child: Text(
-                        (data['pages'] as Map?)?[a]?['text'] as String? ??
-                            'Text not found',
-                        style: TextStyle(
-                            fontSize: 25.0, fontWeight: FontWeight.w500),
-                      ),
+                    flex: 1,
+                    child: Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 3, color: Colors.grey.shade600)),
+                      child: ListView(children: [
+                        Text(
+                          (data['pages'] as Map?)?[a]?['text'] as String? ??
+                              'Text not found',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Ubuntu",
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ]),
                     ),
                   ),
                   Column(
-                    children: choices != null
-                        ? choices.map((choice) {
-                            return ElevatedButton(
+                      spacing: 10,
+                      children: choices != null
+                          ? choices.map((choice) {
+                              return ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 74, 159, 229),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 15)),
                                 onPressed: () {
                                   setState(() {
                                     a = choice['target'];
@@ -188,50 +204,32 @@ class _StoryPageState extends State<StoryPage> {
                                   });
                                 },
                                 child: Text(
-                                  choice['text'],
-                                ));
-                          }).toList()
-                        : [Text('hi')],
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15)),
-                      onPressed: () {},
-                      child: Text(
-                        (data['pages'] as Map?)?[a]?['choices']?[0]['text']
-                                as String? ??
-                            'Text not found',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 15)),
-                      onPressed: () {},
-                      child: Text(
-                        (data['pages'] as Map?)?[a]?['choices']?[0]['text']
-                                as String? ??
-                            'Text not found',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ),
-                  ),
+                                  choice['text'] ?? 'Text not found',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                              );
+                            }).toList()
+                          : [Text("Game Over")]),
+                  // Column(
+                  //   children: choices != null
+                  //       ? choices.map((choice) {
+                  //           return ElevatedButton(
+                  //               onPressed: () {
+                  //                 setState(() {
+                  //                   a = choice['target'];
+                  //                   choices = (data['pages'] as Map?)?[a]
+                  //                       ?['choices'] as List?;
+                  //                   print(choices);
+                  //                 });
+                  //               },
+                  //               child: Text(
+                  //                 choice['text'],
+                  //               ));
+                  //         }).toList()
+                  //       : [Text('Game Over')],
+                  // ),
                 ]),
           )
           // body: Scaffold()

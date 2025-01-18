@@ -223,31 +223,26 @@ class Catergories extends StatelessWidget {
                                 content.value['onPressed'] as VoidCallback,
                             child: Stack(
                               children: [
-                                Material(
-                                  // elevation: 5,
-                                  color: content.value['badgeColor'] as Color,
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Container(
-                                    margin: EdgeInsets.only(top: 40),
-                                    padding: EdgeInsets.all(20),
-                                    width: size.width,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      gradient: LinearGradient(colors: <Color>[
-                                        Colors.amber.shade500,
-                                        Colors.yellow.shade500,
-                                        Colors.amber
-                                      ]),
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        content.value['title'] as Widget,
-                                        content.value['subtitle'] as Widget,
-                                        content.value['description'] as Widget,
-                                      ],
-                                    ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 40),
+                                  padding: EdgeInsets.all(20),
+                                  width: size.width,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    gradient: LinearGradient(colors: <Color>[
+                                      Colors.amber.shade500,
+                                      Colors.yellow.shade500,
+                                      Colors.amber
+                                    ]),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      content.value['title'] as Widget,
+                                      content.value['subtitle'] as Widget,
+                                      content.value['description'] as Widget,
+                                    ],
                                   ),
                                 ),
                                 Positioned(
